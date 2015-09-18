@@ -8,7 +8,7 @@
     "clean": "rm -rf $(find . -name \"*.js\" -not -path \"./node_modules/*\")",
     "preversion": "npm test",
     "version": "npm build",
-    "postversion": "git push && git push --tags && npm run clean",
+    "postversion": "git push origin master && git push origin --tags && npm run clean",
     "prepublish": "git fetch --tags && git checkout $(git describe --tags `git rev-list --tags --max-count=1`)",
     "postpublish": "git checkout master",
     "build": "npm run build:babel && npm run build:coffee && npm run build:test",
