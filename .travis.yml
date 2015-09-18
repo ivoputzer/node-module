@@ -1,35 +1,21 @@
 language: node_js
 env:
   - NODE_ENV=test
-install:
-  - npm install
+
 script:
   - npm test
 
+before_deploy:
+  - npm run build
 
-
-
-# before_deploy:
-#   - echo before_deploy
-# after_deploy:
-#   - echo after_deploy
-
-# deploy:
-#   provider: releases
-#   api_key:
-#     secure: T6O6nCvB5xw1CXZkr4Yfp2quHXkggdvltTWD/aHlhPZRt7F6tZ74PMpX6KoJE4lR/owDgotvFu5Gj5+CMfW135cOVzuj+FIJKyiR59LmNIG0eVU+LJu3Fjv//YZqq0/WRVOhYD7Qg+qGA37LRI4uFVx0hkuRAIpPO2TWg8jj2vYmw6tKC5cK5BxsdbrC8TqL9FWwkkgr0J6F0NynsMuip4DX1SpY2LEFf9+24GKexsGW8UR3rLxmSejKDtirZkN3YCoZA/XpqE1r67RLeZy6AP0N67bT6XX9MTzgLxsZ8vDmH9ISS6GKJSGiSpFgkXv/asDQpX0gRVuFXhl+gB+LkbA9KzBO3hdekUimp93KOZbkuPVJfFWsqFkdj3TnL219BXP5sFVOE7HFqZRrbyB9Ukhq8YIsUFzHtpYJisPGlypSD1rMJgCugXgm1VjMhPw9IMBzGE+vjE9WFmruK9cpj9ZS+uzynfMcblNBuQMt3uda7KpbGSE2f3WFwfs3AV5OdJ2VcCwRwTqpNUg2IFp634nYLtj04tNT6WJeFH9/lyqOoh6EHyzxABGr7pH2aYXLv8PrNq4a+b179YHlsL23jaFjLkc26oZBrXvTY5qQ+L8BfRQhpt2neQWa08iAsCdVbc7+UGLMVJcwvZX2dXENhpVNB/2Z9Q6rrdp8FxmuSdU=
-#   file: ""
-#   on:
-#     repo: ivoputzer/node-module
-#     branch: master
-
-# deploy:
-#   provider: npm
-#   email: ivo.putzer@gmail.com
-#   api_key:
-#     secure: c/CFYaOUfAo0nrNdOaPSpTS+eUzaqUGeHQ+d5UKpBm0ZJWbFzAy5rmFcnA2V5CmrATvrl/k0xnFvQrzbZz5uy+tVHR91n1Pw5V4uhsJNkizCHQYj3VuDF/5QsDkw53v13UMU+nYTqjJjRRzfN9av6OlU5nW+rg7Ng69/z8fMR00EUoPZ+QdLdpTwvkeouIfuLIMhgNOCkWDRQBwLLe/RVYTpfuLi+fGCzKIKxbZziRxPuEfbOMCx2sFBf+uLDQzJG5jR3UGkPtY0DbfzD/GTaovX1kidbFRgpKBwuAhN5vil0bqDbPGzEjsRLb/uNa6xwoorP1zDp+aadPGh8Y8VS756SK88j4KWZRLwcPIwL5ZUtmuTpr1oYqi836FSL3Bnsq7Bb2tggc0RR+K+0W1h7/Vu4I0bQqiIKx5X9v/Rpa6cgvkACWcbYGwDudJRitMhxhxUkeKv+k2CQubOnFZWaeC+QNpbdOlf0o4g606YYz3FtKJW9z5jSK6nVzn59sn9OBMXrr83q94HdHIxq3Oh0dCH7h9vJS9Zzd/cTnL0xQ1SocSWuq04rwsIJdZgiCJkEyLhosEj/1c8kzsg4pFY+j9rdCrUvxTbRCUBtQ0UwGOdKx3Bw066ntwnj/1MOOp7m/OK/AI1nMgf4rsUf0BcZLi2biCN5SKdxAyos4BNwks=
-#   on:
-#     tags: true
-#     repo: ivoputzer/node-module
-#     branch: master
-#   skip_cleanup: true
+deploy:
+  provider: npm
+    email: ivo.putzer@gmail.com
+    allow_failure: true
+    api_key:
+      secure: c/CFYaOUfAo0nrNdOaPSpTS+eUzaqUGeHQ+d5UKpBm0ZJWbFzAy5rmFcnA2V5CmrATvrl/k0xnFvQrzbZz5uy+tVHR91n1Pw5V4uhsJNkizCHQYj3VuDF/5QsDkw53v13UMU+nYTqjJjRRzfN9av6OlU5nW+rg7Ng69/z8fMR00EUoPZ+QdLdpTwvkeouIfuLIMhgNOCkWDRQBwLLe/RVYTpfuLi+fGCzKIKxbZziRxPuEfbOMCx2sFBf+uLDQzJG5jR3UGkPtY0DbfzD/GTaovX1kidbFRgpKBwuAhN5vil0bqDbPGzEjsRLb/uNa6xwoorP1zDp+aadPGh8Y8VS756SK88j4KWZRLwcPIwL5ZUtmuTpr1oYqi836FSL3Bnsq7Bb2tggc0RR+K+0W1h7/Vu4I0bQqiIKx5X9v/Rpa6cgvkACWcbYGwDudJRitMhxhxUkeKv+k2CQubOnFZWaeC+QNpbdOlf0o4g606YYz3FtKJW9z5jSK6nVzn59sn9OBMXrr83q94HdHIxq3Oh0dCH7h9vJS9Zzd/cTnL0xQ1SocSWuq04rwsIJdZgiCJkEyLhosEj/1c8kzsg4pFY+j9rdCrUvxTbRCUBtQ0UwGOdKx3Bw066ntwnj/1MOOp7m/OK/AI1nMgf4rsUf0BcZLi2biCN5SKdxAyos4BNwks=
+    on:
+      tag: false
+      repo: ivoputzer/node-module
+      branch: master
+  skip_cleanup: true

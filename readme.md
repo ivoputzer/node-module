@@ -1,4 +1,5 @@
-node-module
+node-module [![Build Status](https://travis-ci.org/ivoputzer/node-module.svg)](https://travis-ci.org/ivoputzer/node-module)
+
 ====
 this project is meant to be a handy [nodejs][1] module boilerplate. it provides coffeescript and ecmascript6 integrations out of the box. assets are compiled into javascript before they get version-bumped automatically (so they still are available for install over the git protocol).
 
