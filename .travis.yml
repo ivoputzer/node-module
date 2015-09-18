@@ -11,11 +11,10 @@ before_deploy:
 deploy:
   provider: npm
     email: ivo.putzer@gmail.com
-    allow_failure: true
     api_key:
       secure: c/CFYaOUfAo0nrNdOaPSpTS+eUzaqUGeHQ+d5UKpBm0ZJWbFzAy5rmFcnA2V5CmrATvrl/k0xnFvQrzbZz5uy+tVHR91n1Pw5V4uhsJNkizCHQYj3VuDF/5QsDkw53v13UMU+nYTqjJjRRzfN9av6OlU5nW+rg7Ng69/z8fMR00EUoPZ+QdLdpTwvkeouIfuLIMhgNOCkWDRQBwLLe/RVYTpfuLi+fGCzKIKxbZziRxPuEfbOMCx2sFBf+uLDQzJG5jR3UGkPtY0DbfzD/GTaovX1kidbFRgpKBwuAhN5vil0bqDbPGzEjsRLb/uNa6xwoorP1zDp+aadPGh8Y8VS756SK88j4KWZRLwcPIwL5ZUtmuTpr1oYqi836FSL3Bnsq7Bb2tggc0RR+K+0W1h7/Vu4I0bQqiIKx5X9v/Rpa6cgvkACWcbYGwDudJRitMhxhxUkeKv+k2CQubOnFZWaeC+QNpbdOlf0o4g606YYz3FtKJW9z5jSK6nVzn59sn9OBMXrr83q94HdHIxq3Oh0dCH7h9vJS9Zzd/cTnL0xQ1SocSWuq04rwsIJdZgiCJkEyLhosEj/1c8kzsg4pFY+j9rdCrUvxTbRCUBtQ0UwGOdKx3Bw066ntwnj/1MOOp7m/OK/AI1nMgf4rsUf0BcZLi2biCN5SKdxAyos4BNwks=
     on:
       tag: false
       repo: ivoputzer/node-module
       branch: master
-  skip_cleanup: true
+    allow_failure: true
