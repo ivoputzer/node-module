@@ -14,6 +14,7 @@ cd my-modyle
 rm -rf .git
 git init
 git create ivoputzer/my-module
+# or alternatively: git remote add origin git@github.com:USERNAME/REPOSITORY.git
 npm i
 npm version patch
 
