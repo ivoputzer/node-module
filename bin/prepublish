@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-echo "-- compile:babel"
-babel --ignore node_modules -x .es -d . . &>/dev/null
+echo "-- compiling ecmascript6 assets!"
+babel --ignore node_modules -x .es -d . . 1>/dev/null || exit 1
+find . -name "*.es" -not -path "./node_modules/*"
 
-echo "-- compile:coffee"
-coffee --no-header --compile --bare --output . . &>/dev/null
+echo "-- compiling coffee-script assets!"
+coffee --no-header --compile --bare --output . . 1>/dev/null || exit 1
+find . -name "*.coffee" -not -path "./node_modules/*"
+
+exit 0
