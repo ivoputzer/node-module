@@ -1,6 +1,4 @@
 node_modules/
-npm*
+npm*.log
 
-# no plain javascript is allowed in this plugin
-
-**.js
+*.js
