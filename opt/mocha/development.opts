@@ -1,0 +1,5 @@
+--compilers coffee:coffee-script/register,es:babel/register
+--require opt/mocha/helpers
+--colors
+--check-leaks
+--inline-diffs

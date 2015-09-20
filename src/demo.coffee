@@ -1,1 +1,0 @@
-{join} = require 'path'

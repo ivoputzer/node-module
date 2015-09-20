@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "-- compile:babel"
+babel --ignore node_modules -x .es -d . . &>/dev/null
+
+echo "-- compile:coffee"
+coffee --no-header --compile --bare --output . . &>/dev/null
+
+# if the version has changed already do nothing
+
+# set version_is_bumped?=git diff package.json| grep "+  \"version\""
+
+
+# if the version is just like before or is just missing
+
+# npm version patch

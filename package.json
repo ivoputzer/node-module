@@ -1,25 +1,12 @@
 {
   "name": "node-module",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "node.js module boilerplate",
   "main": "main.js",
   "private": false,
   "scripts": {
-    "clean": "rm -rf $(find . -name \"*.js\" -not -path \"./node_modules/*\")",
-    "preversion": "npm test",
-    "version": "npm build",
-    "postversion": "git push origin master && git push origin --tags && npm run clean",
-    "prepublish": "git fetch --tags && git checkout $(git describe --tags `git rev-list --tags --max-count=1`)",
-    "postpublish": "git checkout master",
-
-    "build:babel": "babel --ignore node_modules -x .es -d . .",
-    "build:coffee": "coffee --no-header --compile --bare --output . .",
-
-    "build": "npm run build:babel && npm run build:coffee",
-    "build:test": "mocha --require opt/mocha/helpers --bail --colors --check-leaks $(find src/test -name \"*.js\" -not -path \"./node_modules/*\")",
-
-    "test": "mocha --recursive src/test --compilers coffee:coffee-script/register,es:babel/register --require opt/mocha/helpers --colors --check-leaks",
-    "test:watch": "npm run test -- -w"
+    "prepublish": "bin/prepublish",
+    "test": "mocha --opts ${MOCHA_OPTS_FILE:-opt/mocha/development.opts}"
   },
   "repository": {
     "type": "git",

@@ -1,20 +1,23 @@
 language: node_js
 env:
-  - NODE_ENV=test
-
+  - MOCHA_OPTS_FILE=opt/mocha/prepublish.opts
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install # we have to check how not to trigger prepublish here
+  - npm prune # we cache modules right? lets cleanup things
+before_script:
+  - npm run prepublish # at this point there should be js files only
 script:
   - npm test
-
-before_deploy:
-  - npm run build
-
+  - npm version patch
 deploy:
   provider: npm
   email: ivo.putzer@gmail.com
   api_key:
     secure: c/CFYaOUfAo0nrNdOaPSpTS+eUzaqUGeHQ+d5UKpBm0ZJWbFzAy5rmFcnA2V5CmrATvrl/k0xnFvQrzbZz5uy+tVHR91n1Pw5V4uhsJNkizCHQYj3VuDF/5QsDkw53v13UMU+nYTqjJjRRzfN9av6OlU5nW+rg7Ng69/z8fMR00EUoPZ+QdLdpTwvkeouIfuLIMhgNOCkWDRQBwLLe/RVYTpfuLi+fGCzKIKxbZziRxPuEfbOMCx2sFBf+uLDQzJG5jR3UGkPtY0DbfzD/GTaovX1kidbFRgpKBwuAhN5vil0bqDbPGzEjsRLb/uNa6xwoorP1zDp+aadPGh8Y8VS756SK88j4KWZRLwcPIwL5ZUtmuTpr1oYqi836FSL3Bnsq7Bb2tggc0RR+K+0W1h7/Vu4I0bQqiIKx5X9v/Rpa6cgvkACWcbYGwDudJRitMhxhxUkeKv+k2CQubOnFZWaeC+QNpbdOlf0o4g606YYz3FtKJW9z5jSK6nVzn59sn9OBMXrr83q94HdHIxq3Oh0dCH7h9vJS9Zzd/cTnL0xQ1SocSWuq04rwsIJdZgiCJkEyLhosEj/1c8kzsg4pFY+j9rdCrUvxTbRCUBtQ0UwGOdKx3Bw066ntwnj/1MOOp7m/OK/AI1nMgf4rsUf0BcZLi2biCN5SKdxAyos4BNwks=
   on:
-    tags: false
+    tags: true
     repo: ivoputzer/node-module
     branch: master
-  allow_failure: true

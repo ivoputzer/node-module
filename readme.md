@@ -16,6 +16,10 @@ git init
 git create ivoputzer/my-module
 npm i
 npm version patch
+
+travis setup npm
+travis setup releases
+
 ```
 
 - install github's utility: [hub][2]
