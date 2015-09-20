@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 echo "-- compiling ecmascript6 assets!"
-files=$(find . -name "*.es" -not -path "./node_modules/*")
-babel --ignore node_modules -x .es -d . $files 1> /dev/null || exit 1
-echo $files
+FILES=$(find . -name "*.es" -not -path "./node_modules/*")
+babel --ignore node_modules -x .es -d . $FILES 1> /dev/null || exit 1
+[ "CI" == $NODE_ENV ] && rm -rf $FILES
+echo $FILES
 
 echo "-- compiling coffee-script assets!"
-files=$(find . -name "*.coffee" -not -path "./node_modules/*")
-coffee --no-header --compile --bare --output . $files 1> /dev/null || exit 1
-echo $files
+FILES=$(find . -name "*.coffee" -not -path "./node_modules/*")
+coffee --no-header --compile --bare --output . $FILES 1> /dev/null || exit 1
+[ "CI" == $NODE_ENV ] && rm -rf $FILES
+echo $FILES
 
 exit 0
