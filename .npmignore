@@ -1,2 +1,5 @@
-*.coffee
-*.es
+node_modules/
+doc/
+test/
+.git/
+*.log
