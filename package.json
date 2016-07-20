@@ -19,15 +19,21 @@
     "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)"
   ],
   "scripts": {
+    "bin": "bin/node-module",
     "test": "mocha --full-trace --check-leaks",
     "test:major": "git reset head~2 -- test; npm test -- $(find test/module -type f -name \\*.js)",
     "test:minor": "git reset head~2 -- test; npm test -- $(find test -type f -name \\*.js -not -path test/module/\\*)",
     "version:auto": "bin/version/auto"
   },
-  "main": "index.js",
+  "bin": {
+    "node-module" : "bin/node-module"
+  },
+  "main" : "index.js",
+  "engineStrict": true,
   "engines": {
-    "node": ">= 6.0.0",
-    "iojs": ">= 3.0.0"
+    "node": "^6.0.0",
+    "iojs": "^3.0.0",
+    "npm": "^3.0.0"
   },
   "config": {
     "analyze": false

@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-console.log('command line utils not implemented yet')
+const [command, name] = process.argv.slice(2)
+
+console.log('cli utils not implemented yet:', {command, name})
