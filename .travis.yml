@@ -1,21 +1,29 @@
 language: node_js
-env:
-  - NODE_ENV:ci
-  - MOCHA_OPTS_FILE=opt/mocha/production.opts
+node_js:
+  - 6.0.0
+  - 6.1.0
+  - 6.2.0
+  - 6.2.1
+  - 6.2.2
+  - 6.3.0
+matrix:
+  fast_finish: true
+branches:
+  only: master
+git:
+  depth: 2
 cache:
   directories:
     - node_modules
 install:
-  - npm install # we have to check how not to trigger prepublish here
-  - npm prune # we cache modules right? lets cleanup things
+  - npm install
+  - npm prune
 script:
   - npm test
-  - npm version patch
 deploy:
   provider: npm
   email: ivo.putzer@gmail.com
-  api_key:
-    secure: c/CFYaOUfAo0nrNdOaPSpTS+eUzaqUGeHQ+d5UKpBm0ZJWbFzAy5rmFcnA2V5CmrATvrl/k0xnFvQrzbZz5uy+tVHR91n1Pw5V4uhsJNkizCHQYj3VuDF/5QsDkw53v13UMU+nYTqjJjRRzfN9av6OlU5nW+rg7Ng69/z8fMR00EUoPZ+QdLdpTwvkeouIfuLIMhgNOCkWDRQBwLLe/RVYTpfuLi+fGCzKIKxbZziRxPuEfbOMCx2sFBf+uLDQzJG5jR3UGkPtY0DbfzD/GTaovX1kidbFRgpKBwuAhN5vil0bqDbPGzEjsRLb/uNa6xwoorP1zDp+aadPGh8Y8VS756SK88j4KWZRLwcPIwL5ZUtmuTpr1oYqi836FSL3Bnsq7Bb2tggc0RR+K+0W1h7/Vu4I0bQqiIKx5X9v/Rpa6cgvkACWcbYGwDudJRitMhxhxUkeKv+k2CQubOnFZWaeC+QNpbdOlf0o4g606YYz3FtKJW9z5jSK6nVzn59sn9OBMXrr83q94HdHIxq3Oh0dCH7h9vJS9Zzd/cTnL0xQ1SocSWuq04rwsIJdZgiCJkEyLhosEj/1c8kzsg4pFY+j9rdCrUvxTbRCUBtQ0UwGOdKx3Bw066ntwnj/1MOOp7m/OK/AI1nMgf4rsUf0BcZLi2biCN5SKdxAyos4BNwks=
-  on:
-    repo: ivoputzer/node-module
-    branch: master
+  # skip_cleanup: true
+  api_key: $NPM_API_KEY
+# before_deploy: bin/travis/before_deploy
+# after_deploy: bin/travis/after_deploy
