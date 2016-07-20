@@ -1,6 +1,6 @@
-The MIT License (MIT)
+# The MIT License (MIT)
 
-Copyright © 2015 Ivo von Putzer Reibegg
+**Copyright © 2016 Ivo von Putzer Reibegg**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
