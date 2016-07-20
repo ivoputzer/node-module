@@ -1,4 +1,0 @@
---require opt/mocha/helpers
---colors
---check-leaks
---inline-diffs
