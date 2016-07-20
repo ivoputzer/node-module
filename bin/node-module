@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+
+console.log('command line utils not implemented yet')
