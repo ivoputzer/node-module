@@ -1,33 +1,47 @@
 {
   "name": "node-module",
-  "version": "1.0.9",
-  "description": "node.js module boilerplate",
-  "main": "main.js",
-  "private": false,
+  "version": "2.0.0",
+  "private": true,
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
+  "description": "node-module is a boilerplate application for easier nodejs-module setup and maintenance",
+  "homepage": "https://github.com/ivoputzer/node-module",
+  "keywords": [
+    "node",
+    "module",
+    "boilerplate",
+    "maintenance",
+    "config",
+    "setup",
+    "travis",
+    "github"
+  ],
+  "contributors": [
+    "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)"
+  ],
   "scripts": {
-    "prepublish": "bin/prepublish",
-    "test": "mocha --opts ${MOCHA_OPTS_FILE:-opt/mocha/development.opts}"
+    "test": "mocha --full-trace --check-leaks",
+    "test:major": "git reset head~2 -- test; npm test -- $(find test/module -type f -name \\*.js)",
+    "test:minor": "git reset head~2 -- test; npm test -- $(find test -type f -name \\*.js -not -path test/module/\\*)",
+    "version:auto": "bin/version/auto"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">= 6.0.0",
+    "iojs": ">= 3.0.0"
+  },
+  "config": {
+    "analyze": false
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.5.3"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ivoputzer/node-module.git"
+    "url": "git+https://github.com/ivoputzer/node-module.git"
   },
-  "keywords": [
-    "node",
-    "modules",
-    "boilerplate",
-    "coffee-script"
-  ],
-  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ivoputzer/node-module/issues"
   },
-  "homepage": "https://github.com/ivoputzer/node-module",
-  "devDependencies": {
-    "babel": "^5.8.23",
-    "coffee-script": "^1.10.0",
-    "expect.js": "^0.3.1",
-    "mocha": "^2.3.2"
-  }
+  "license": "license.md"
 }
