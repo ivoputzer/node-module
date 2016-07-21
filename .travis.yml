@@ -11,6 +11,7 @@ cache:
   directories:
     - node_modules
 before_install:
+  - npm set progress=false
   - npm install -g pnpm
 install:
   - pnpm install
