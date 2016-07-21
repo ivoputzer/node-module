@@ -18,8 +18,6 @@ cache:
 install:
   - npm install
   - npm prune
-script:
-  - npm run test:all
 deploy:
   provider: npm
   email: ivo.putzer@gmail.com
