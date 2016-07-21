@@ -28,9 +28,9 @@
     "version:auto": "bin/version/auto"
   },
   "bin": {
-    "node-module" : "bin/node-module"
+    "node-module": "bin/node-module"
   },
-  "main" : "index.js",
+  "main": "index.js",
   "engineStrict": true,
   "engines": {
     "node": "^6.0.0",
