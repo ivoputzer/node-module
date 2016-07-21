@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+echo "> version:post"
+
+git checkout ./test
+git checkout ./doc
