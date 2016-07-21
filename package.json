@@ -20,7 +20,6 @@
   ],
   "scripts": {
     "bin": "bin/node-module",
-    "postinstall": "npm prune",
     "test": "mocha --recursive --full-trace --check-leaks",
     "version:auto": "bin/version/auto",
     "verify:major": "git reset head~2 -- test; npm test -- $(find test/module -type f -name \\*.js)",
