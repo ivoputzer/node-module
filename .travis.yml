@@ -10,8 +10,10 @@ git:
 cache:
   directories:
     - node_modules
+before_install:
+  - npm install -g pnpm
 install:
-  - npm install
+  - pnpm install
   - npm prune
 deploy:
   provider: npm
