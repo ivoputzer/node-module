@@ -1,1 +1,10 @@
 #!/usr/bin/env bash
+
+set -e
+echo "> travis:deploy:before"
+
+git config user.name "Travis CI"
+git config user.email "builds@travis-ci.com"
+
+git checkout npm 2>/dev/null || git checkout --orphan npm
+npm run version:auto

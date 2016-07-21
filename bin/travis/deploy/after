@@ -1,1 +1,7 @@
 #!/usr/bin/env bash
+
+set -e
+echo "> travis:deploy:after"
+
+git add --all
+git push origin npm --follow-tags
