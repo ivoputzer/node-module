@@ -2,8 +2,8 @@ const {fail, ok, equal} = require('assert')
 const {exec} = require('child_process')
 
 describe('test/module/config', function () {
-  it('disables npm git version tags', (done) => {
-    exec('npm get git-tag-version', is('false').bind(done))
+  it('enables npm git version tags', (done) => {
+    exec('npm get git-tag-version', is('true').bind(done))
   })
   it('disables npm progress bar', (done) => {
     exec('npm get progress', is('false').bind(done))
