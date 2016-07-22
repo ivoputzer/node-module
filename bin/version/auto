@@ -3,4 +3,5 @@
 set -e
 echo "> version:auto"
 
-npm version patch -m "%s"
+# patch, minor, major, prepatch, preminor, premajor, prerelease
+npm version patch --message "%s" # --force
