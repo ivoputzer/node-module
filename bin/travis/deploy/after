@@ -3,4 +3,4 @@
 set -e
 echo "> travis:deploy:after"
 
-git push origin npm --follow-tags
+git push origin --tags
