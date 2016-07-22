@@ -22,6 +22,9 @@ before_install:
 install:
 - pnpm install
 - npm prune
+after_success:
+  - eval "$(ssh-agent -s)"
+  - git remote -v
 deploy:
   provider: npm
   email: ivo.putzer@gmail.com
