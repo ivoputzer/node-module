@@ -1,6 +1,6 @@
 {
   "name": "node-module",
-  "version": "2.0.0",
+  "version": "0.0.0",
   "private": false,
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)",
   "description": "node-module is a boilerplate application for easier nodejs-module setup and maintenance",
