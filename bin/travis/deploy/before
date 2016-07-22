@@ -6,7 +6,8 @@ DEPLOY_GIT_EMAIL="builds@travis-ci.com"
 set -e
 echo "> travis:deploy:before"
 
-git checkout npm 2>/dev/null || git checkout --orphan npm
+# git checkout npm 2>/dev/null || git checkout --orphan npm
+git checkout -B npm
 
 git config user.name $DEPLOY_GIT_NAME
 git config user.email $DEPLOY_GIT_EMAIL
