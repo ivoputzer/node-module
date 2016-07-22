@@ -4,4 +4,6 @@ set -e
 echo "> version:auto"
 
 # patch, minor, major, prepatch, preminor, premajor, prerelease
-npm version patch --message "%s" # --force
+# npm version patch --message "%s" # --force
+
+# should only create a tag on the current branch for whats the candidate version
