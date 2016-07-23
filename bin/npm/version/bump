@@ -10,3 +10,5 @@ version=$(npm version patch --no-git-tag-version --force --message "%s"); # skip
 git tag -a ${version:1} -m ${version:1} && {
   git reset package.json;
 };
+
+# we are ready to be published!
