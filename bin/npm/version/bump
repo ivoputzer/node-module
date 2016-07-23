@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# restoring previous commit package version
+npm version --no-git-tag-version from-git && {
+  git reset --soft HEAD~1; # https://github.com/npm/npm/issues/13242
+};
+
+# bumping package version
+version=$(npm version patch --no-git-tag-version --force --message "%s"); # skip clean working directory check
+git tag -a ${version:1} -m ${version:1} && {
+  git reset package.json;
+};

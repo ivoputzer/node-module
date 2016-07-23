@@ -20,12 +20,10 @@
   ],
   "scripts": {
     "bin": "bin/node-module",
-    "test": "mocha --recursive --full-trace --check-leaks",
+    "version:bump": "bin/npm/version/bump",
     "verify:major": "git reset head~2 -- test; npm test -- $(find test/module -type f -name \\*.js)",
     "verify:minor": "git reset head~2 -- test; npm test -- $(find test -type f -name \\*.js -not -path test/module/\\*)",
-    "preversion": "bin/version/pre",
-    "postversion": "bin/version/post",
-    "version:auto": "bin/version/auto"
+    "test": "mocha --recursive --full-trace --check-leaks"
   },
   "bin": {
     "node-module": "bin/node-module"
