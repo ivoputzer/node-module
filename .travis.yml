@@ -24,9 +24,7 @@ install:
 - npm prune
 after_success:
   - eval "$(ssh-agent -s)"
-  - git remote -v
   - git remote set-url origin git@github.com:ivoputzer/node-module.git
-  - git remote -v
 deploy:
   provider: npm
   email: ivo.putzer@gmail.com
