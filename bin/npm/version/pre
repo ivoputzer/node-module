@@ -1,8 +1,42 @@
-#!/usr/bin/env bash
+#!/usr/bin/env node
 
-set -e
+const {execSync} = require('child_process')
+const {fs} = require('fs')
+const {dirname, resolve} = require('path')
 
-# restoring package.json version based on
-npm version from-git --silent --no-git-tag-version && {
-  git reset --soft HEAD~1;
-}
+console.log(process.env.npm_lifecycle_event)
+console.log(execSync('npm version from-git --no-git-tag-version'))
+
+// console.log(dirname(require.main.filename))
+// console.log(resolve(__dirname))
+// console.log(process.cwd())
+
+// const package = require('../../../package')
+// console.log(package.version)
+
+// fs.readFileSync('')
+// fs.writeFileSync(filename, JSON.stringify(content));
+
+// const last = execSync('git describe --abbrev=0')
+
+
+// git describe --abbrev=0
+
+// # progress=$(npm config get node-module:version_bump_in_progress)
+// # echo $progress
+
+// # [ "$progress" = "true" ] && {
+// #   echo "! verion bump already in progress";
+// #   exit 1;
+// # }
+
+// # npm config set node-module:version_nump_in_progress=true
+
+// # [ -n "$npm_version_bump_in_progress" ] && {
+// #   exit 1;
+// # };
+
+// # export npm_version_bump_in_progress=1
+
+// restoring package.json version based on
+// execSync('git reset --soft HEAD~1')
