@@ -19,6 +19,8 @@
     "Ivo von Putzer Reibegg <ivo.putzer@gmail.com> (https://github.com/ivoputzer)"
   ],
   "scripts": {
+    "node": "node",
+    "keygen": "bin/keygen",
     "bin": "bin/node-module",
     "preversion": "bin/npm/version/pre",
     "version:bump": "bin/npm/version/bump",

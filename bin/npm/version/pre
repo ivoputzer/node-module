@@ -1,11 +1,34 @@
 #!/usr/bin/env node
 
-const {execSync} = require('child_process')
-const {fs} = require('fs')
-const {dirname, resolve} = require('path')
+/*
+  npm version from-git <--- recursion
+  git reset HEAD~1
+*/
 
-console.log(process.env.npm_lifecycle_event)
-console.log(execSync('npm version from-git --no-git-tag-version'))
+const {PWD:dirname} = process.env
+
+const {execSync} = require('child_process')
+const {readFileSync:readFile, writeFileSync:writeFile} = require('fs')
+const {join} = require('path')
+
+const filename = join(dirname, 'package.json')
+
+let info = require(filename)
+let gtag = execSync('git describe --abbrev=0').toString('utf8')
+
+if (!gtag) info.version = '0.0.0' // or exit maybe?
+
+info.version = gtag
+
+console.log(filename, gtag, info)
+
+// console.log(info)
+
+// , 'utf8', (_, data) => {
+//   let info = JSON.parse(data)
+//   info.version = execSync('git describe --abbrev=0')
+//   writeFile('../../../package.json', info, 'utf8', noop)
+// })
 
 // console.log(dirname(require.main.filename))
 // console.log(resolve(__dirname))

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -e
+
+# [  "$TRAVIS_PULL_REQUEST" != "false" ] [  "$TRAVIS_BRANCH" != "master" ] && exit 0
+
+echo -e ">>> github:auth"
+echo -e
+
+echo -e "-- github:auth ssh"
+chmod 600 .ssh/travis_rsa
+ssh-add .ssh/travis_rsa
+
+REPO_SLUG=$(git remote show origin -n \
+         | grep -Eio '\w+/(\w+|\w+\-\w+)' \
+         | head -n1)
+
+echo -e "-- github:auth repo_slug $REPO_SLUG"
+echo -e "-- github:auth travis_repo_slug $TRAVIS_REPO_SLUG"
+echo -e
+
+GITHUB_REPO="git@github.com:${TRAVIS_REPO_SLUG:-$REPO_SLUG}.git"
+
+echo -e "-- github:auth github_repo $GITHUB_REPO"
+echo -e
+
+git remote set-url origin $GITHUB_REPO
+
+git config --global user.name "Travis CI"
+git config --global user.email "builds@travis-ci.org"
+
+echo "Host github.com\n" \
+     "  User git\n" \
+     "  IdentityFile ~/.ssh/id_rsa\n" \
+     "  StrictHostKeyChecking no\n" \
+     "  PasswordAuthentication no\n" \
+     "  CheckHostIP no\n" \
+     "  BatchMode yes\n" > ~/.ssh/config
+
+ssh -T git@github.com
