@@ -7,6 +7,7 @@ echo -e ">>> github:auth"
 echo -e
 
 echo -e "-- github:auth ssh"
+eval "$(ssh-agent -s)"
 chmod 600 .ssh/travis_rsa
 ssh-add .ssh/travis_rsa
 
