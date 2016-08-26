@@ -13,7 +13,8 @@ branches:
   only: master
 git:
   depth: 2
-before_deploy:
-- openssl aes-256-cbc -K $encrypted_4ad9e6c1e3a9_key -iv $encrypted_4ad9e6c1e3a9_iv
-  -in travis_rsa.enc -out travis_rsa -d
-- bin/travis/github_auth
+before_install:
+- eval $(ssh-agent -s)
+- ls .ssh/
+- git remote -v
+- ssh -T git@github.com
