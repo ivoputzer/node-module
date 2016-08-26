@@ -16,5 +16,6 @@ git:
 before_install:
 - eval $(ssh-agent -s)
 - ls .ssh/
+- ls ~/.ssh/
 - git remote -v
 - ssh -T git@github.com
