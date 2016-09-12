@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-echo "> travis:deploy:after"
-
-git push origin --tags

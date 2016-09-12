@@ -1,4 +1,5 @@
 node_modules/
-.ssh/travis_rsa
+npm-debug*
+
 *.log
-*todo*
+*.todo

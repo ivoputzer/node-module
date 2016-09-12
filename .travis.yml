@@ -1,24 +1,9 @@
 language: node_js
-node_js:
-- 6.0.0
-- 6.1.0
-- 6.2.0
-- 6.2.1
-- 6.2.2
-- 6.3.0
-- 6.3.1
-matrix:
-  fast_finish: true
-branches:
-  only: master
+node_js: 6.4.0
 git:
   depth: 2
+matrix:
+  fast_finish: true
 before_install:
-- eval $(ssh-agent -s)
-- ls .ssh/
-- ls ~/.ssh/
-- cat ~/.ssh/authorized_keys
-- cat ~/.ssh/config
-- cat ~/.ssh/known_hosts
-- git remote -v
-- ssh -T git@github.com
+- npm config set progress=false
+- npm config set spin=false
