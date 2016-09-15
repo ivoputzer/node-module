@@ -1,6 +1,6 @@
 const {deepEqual, doesNotThrow} = require('assert')
 
-describe('test/module/exports', function(){
+describe('module/exports', function(){
   it('returns an empty object', () => {
     const mainFile = process.env.npm_package_main || process.cwd()
         , exports = require.main.require(mainFile)
