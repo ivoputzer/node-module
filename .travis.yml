@@ -5,7 +5,7 @@ git:
 matrix:
   fast_finish: true
 before_install:
+- ssh -T git@github.com
 - npm config set progress=false
 - npm config set spin=false
-after_install:
-- ssh -T git@github.com
+
